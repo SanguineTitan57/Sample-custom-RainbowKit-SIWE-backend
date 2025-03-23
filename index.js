@@ -8,8 +8,8 @@ const app = express();                       // Initializing the Express applica
 app.use(cors({                               // Using the CORS middleware with specific configuration
     origin: "http://localhost:3000"          // Allowing requests only from the specified origin, in this case, which will be localhost:3000 for NextJS development. Replace with your appropriate origin based on your framework (Vite is localhost:5173)
 }));
-app.use(express.json({ limit: "16kb"}));     // Parsing incoming JSON requests with a limit of 16kb
-app.use(express.urlencoded({ extended: true, limit: "16kb"})); // Parsing URL-encoded data with a limit of 16kb
+app.use(express.json({ limit: "16kb" }));     // Parsing incoming JSON requests with a limit of 16kb
+app.use(express.urlencoded({ extended: true, limit: "16kb" })); // Parsing URL-encoded data with a limit of 16kb
 app.use(cookieParser());                     // Using the cookie-parser middleware to parse cookies
 
 app.get("/", (req, res) => {                 // Defining a GET route for the root URL
@@ -20,7 +20,7 @@ let address = "";                            // Variable to store the user's Eth
 
 app.get("/nonce", async (req, res) => {      // Defining a GET route to generate and return a nonce
     const nonce = generateNonce();           // Generating a random nonce using the siwe library
-    res.status(200).json({nonce});           // Responding with the nonce in JSON format
+    res.status(200).json({ nonce });           // Responding with the nonce in JSON format
 });
 
 app.get("/me", (req, res) => {               // Defining a GET route to return the stored Ethereum address
